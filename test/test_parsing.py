@@ -15,9 +15,10 @@ class ParserTest(unittest.TestCase):
         image_url = """https://images.asos-media.com/products/"""
         """vestido-largo-y-plisado-de-dama-de-honor-en-rosa-exclusivo-de-tfnc/"""
         """13955198-2?$XXL$&wid=513&fit=constrain"""
-        image = Image(url=image_url, etag="xxx")
-        self.assertTrue(hasattr(image, "etag"))
-        self.assertIsInstance(image.etag, str)
+        for etag in ["xx", None]:
+            image = Image(url=image_url, etag=etag)
+            self.assertTrue(hasattr(image, "etag"))
+            self.assertIsInstance(image.etag, (str, type(None)))
 
     @pytest.mark.order2
     def test_product_type(self):
