@@ -33,7 +33,13 @@ class ClientAParser(ClientParser):
 
     def __init__(self, filename):
         """Client parser constructor."""
-        self.tree = ET.parse(filename)
+        if filename.endswith("xml"):
+            self.tree = ET.parse(filename)
+        elif filename.endswith(".gz"):
+            import gzip
+            self.tree = ET.parse(gzip.open(filename))
+        else:
+            raise NotImplementedError
 
     def __len__(self):
         #TODO, implement "how to get number of products"
@@ -60,7 +66,7 @@ if __name__ == '__main__':
     parser = ClientAParser(xml_filename)
 
     tic = time.time()
-    # optimize and speed the whole xml parsing
+    # optimize and speed up the whole xml parsing
     # you could use threading, multi processing and etc
     for idx in range(len(parser)):
         product = parser[idx]
