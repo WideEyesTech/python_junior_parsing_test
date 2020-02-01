@@ -7,7 +7,7 @@ import unittest
 class ParserTest(unittest.TestCase):
 
     def setUp(self):
-        xml_filename = 'example_feed.xml'
+        xml_filename = 'feed.tar.gz'
         self.parser = ClientAParser(xml_filename)
 
     @pytest.mark.order1
