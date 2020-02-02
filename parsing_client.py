@@ -62,7 +62,7 @@ if __name__ == '__main__':
 
     import time
 
-    xml_filename = 'feed.tar.gz'
+    xml_filename = 'feed.gz'
     parser = ClientAParser(xml_filename)
 
     tic = time.time()
