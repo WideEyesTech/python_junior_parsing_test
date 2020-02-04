@@ -43,6 +43,7 @@ class ParserTest(unittest.TestCase):
         self.assertTrue(hasattr(product, "category"))
         self.assertTrue(hasattr(product, "description"))
 
+        self.assertIsInstance(product.uid, str)
         self.assertIsInstance(product.images, list)
         self.assertIsInstance(product.gender, str)
         self.assertIsInstance(product.url, str)
@@ -66,8 +67,8 @@ class ParserTest(unittest.TestCase):
         self.assertIsInstance(product, Product)
         # we expect the price of the product at index 2 is 329
         self.assertEqual(product.price, 329.00)
-        # we expect the uid of the product at index 2 is 1000046
-        self.assertEqual(product.uid, 1000046)
+        # we expect the uid of the product at index 2 is "1000046"
+        self.assertEqual(product.uid, "1000046")
         # and so on ...
         self.assertEqual(product.description, "Dsquared2 Siyah İpek Papyon")
         self.assertEqual(product.url,
