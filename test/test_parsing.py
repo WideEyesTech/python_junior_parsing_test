@@ -31,13 +31,13 @@ class ParserTest(unittest.TestCase):
         description = "Vestido largo y plisado de dama de honor en rosa exclusivo de TFNC"
         images = [Image(url=image_url) for x in range(5)]  # 5 fake images
         product = Product(uid="sku1000", images=images, gender="female",
-                          product_url=product_url, price=82.99,
+                          url=product_url, price=82.99,
                           category="dress", size="M", description=description)
 
         self.assertTrue(hasattr(product, "uid"))
         self.assertTrue(hasattr(product, "images"))
         self.assertTrue(hasattr(product, "gender"))
-        self.assertTrue(hasattr(product, "product_url"))
+        self.assertTrue(hasattr(product, "url"))
         self.assertTrue(hasattr(product, "price"))
         self.assertTrue(hasattr(product, "size"))
         self.assertTrue(hasattr(product, "category"))
@@ -45,7 +45,7 @@ class ParserTest(unittest.TestCase):
 
         self.assertIsInstance(product.images, list)
         self.assertIsInstance(product.gender, str)
-        self.assertIsInstance(product.product_url, str)
+        self.assertIsInstance(product.url, str)
         self.assertIsInstance(product.price, float)
         self.assertIsInstance(product.size, str)
         self.assertIsInstance(product.category, str)
